@@ -60,9 +60,12 @@ class EmailBackend(BaseEmailBackend):
         # Next line simply cuts the required part of the whole message created by django built-ins
         message = str(message).split('>')[1]
 
+        # Init connection with API
         api_proxy = PySendPulse(self.email_host_user,
                                 self.email_host_password,
                                 'memcached')
+        
+        # Send an email template for each recipient
         for recipient in recipients:
             email = {
                 'subject': 'Password reset email',
@@ -78,6 +81,11 @@ class EmailBackend(BaseEmailBackend):
 
 
 class PySendPulse:
+    """
+    The class is a cropped version of the class PySendPulse from a pysendpulse package. 
+    The class imported into the current module due to the problems occurring when installing the package via the pip.
+    Documentation: https://github.com/sendpulse/sendpulse-rest-api-python
+    """
     __api_url = "https://api.sendpulse.com"
     __user_id = None
     __secret = None
