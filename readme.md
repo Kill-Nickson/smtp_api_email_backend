@@ -1,4 +1,4 @@
-###SMTP API email backend for SendPulseAPI in Django
+### SMTP API email backend for SendPulseAPI in Django
 
 1.More natural and popular way interact with SMTP-services in django is an SMTP email backend:
 
