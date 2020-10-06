@@ -264,16 +264,16 @@ class PySendPulse:
 
 if __name__ == "__main__":
     TOKEN_STORAGE = 'memcached'
-    SPApiProxy = PySendPulse('204bff0813cecdc20d9a55cde1a659a2',
-                             '71617592f9d32a23564e6f7d2dbb4090',
+    SPApiProxy = PySendPulse('your_credentials',
+                             'your_credentials',
                              TOKEN_STORAGE)
     mail = {
         'subject': 'This is the test task from REST API',
         'html': '<p>This is a test task from https://sendpulse.com/api REST API!</p>',
         'text': 'This is a test task from https://sendpulse.com/api REST API!',
-        'from': {'name': 'John Doe', 'email': 'gleb.basov@topmail.com'},
+        'from': {'name': 'John Doe', 'email': 'sender_email'},
         'to': [
-            {'name': 'Jane Roe', 'email': 'gleb.basov.98@gmail.com'}
+            {'name': 'Jane Roe', 'email': 'receiver_email'}
         ]
     }
     SPApiProxy.smtp_send_mail(mail)
